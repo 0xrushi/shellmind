@@ -23,6 +23,7 @@ ShellMind enhances your shell experience by logging all commands to a SQLite dat
 - `sqlite3` - for command history database
 - `aichat` - for AI copilot feature (optional but recommended)
   - Install from: https://github.com/sigoden/aichat
+  - **Tip**: Works great with cheap models like Gemini Flash Lite. For best results, run commands manually first to build context history rather than relying solely on AI-generated commands.
 
 ### Quick Install
 
