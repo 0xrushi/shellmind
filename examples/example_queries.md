@@ -307,4 +307,6 @@ export HCOUNT=20
 export AIQ_MAX_CTX=4000
 ```
 
-Add these to your `~/.zshrc` or `~/.bashrc` to make them permanent.
+Add these to your `~/.zshrc` to make them permanent.
+
+> **Note**: ShellMind only works with Zsh shell.

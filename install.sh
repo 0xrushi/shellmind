@@ -4,6 +4,10 @@ set -e
 
 echo "Installing ShellMind - Command History Database + AI Copilot"
 echo "=============================================================="
+echo ""
+echo "⚠️  WARNING: ShellMind only works with Zsh shell."
+echo "    It will NOT work with Bash or other shells."
+echo ""
 
 # Determine install location
 INSTALL_DIR="${HOME}/.local/bin"
@@ -23,13 +27,11 @@ chmod +x "${INSTALL_DIR}/query_commands.sh"
 if [ -n "$ZSH_VERSION" ] || [ -f "$HOME/.zshrc" ]; then
     SHELL_RC="$HOME/.zshrc"
     SHELL_NAME="zsh"
-elif [ -n "$BASH_VERSION" ] || [ -f "$HOME/.bashrc" ]; then
-    SHELL_RC="$HOME/.bashrc"
-    SHELL_NAME="bash"
 else
-    echo "Warning: Could not detect shell type. Defaulting to .bashrc"
-    SHELL_RC="$HOME/.bashrc"
-    SHELL_NAME="bash"
+    echo "❌ ERROR: Zsh not detected!"
+    echo "   ShellMind requires Zsh and will not work with Bash or other shells."
+    echo "   Please install Zsh and try again."
+    exit 1
 fi
 
 echo "Detected shell: $SHELL_NAME"

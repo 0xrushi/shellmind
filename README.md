@@ -15,8 +15,11 @@ ShellMind enhances your shell experience by logging all commands to a SQLite dat
 
 ## Installation
 
+> **⚠️ WARNING: This tool only works with Zsh shell. It will not work with Bash or other shells.**
+
 ### Prerequisites
 
+- **Zsh shell** - Required (does not work with Bash)
 - `sqlite3` - for command history database
 - `aichat` - for AI copilot feature (optional but recommended)
   - Install from: https://github.com/sigoden/aichat
@@ -31,7 +34,7 @@ cd shellmind
 
 Then restart your shell or run:
 ```bash
-source ~/.zshrc  # or ~/.bashrc for bash
+source ~/.zshrc
 ```
 
 ## Usage
