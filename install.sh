@@ -2,8 +2,12 @@
 
 set -e
 
+SHELLMIND_DIR="$(cd "$(dirname "$0")" && pwd)"
+VERSION="$(cat "${SHELLMIND_DIR}/VERSION" 2>/dev/null || echo "dev")"
+
 echo "Installing ShellMind - Command History Database + AI Copilot"
 echo "=============================================================="
+echo "Version: ${VERSION}"
 echo ""
 echo "⚠️  WARNING: ShellMind only works with Zsh shell."
 echo "    It will NOT work with Bash or other shells."
@@ -11,7 +15,6 @@ echo ""
 
 # Determine install location
 INSTALL_DIR="${HOME}/.local/bin"
-SHELLMIND_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Create install directory if it doesn't exist
 mkdir -p "$INSTALL_DIR"

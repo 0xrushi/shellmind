@@ -50,6 +50,14 @@ cd shellmind
 
 The uninstaller removes the installed scripts and ShellMind block in your `~/.zshrc`. It will ask before deleting your command history database.
 
+### Version
+
+```bash
+cat VERSION
+```
+
+The version file is used by both the installer and uninstaller to display the currently installed ShellMind release.
+
 ## Usage
 
 ### Command History Queries

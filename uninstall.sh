@@ -5,6 +5,10 @@ set -e
 echo "Uninstalling ShellMind"
 echo "======================="
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+VERSION="$(cat "${SCRIPT_DIR}/VERSION" 2>/dev/null || echo "dev")"
+echo "Version: ${VERSION}"
+
 INSTALL_DIR="${HOME}/.local/bin"
 SHELL_RC="${HOME}/.zshrc"
 DB_FILE="${COMMAND_LOG_DB:-$HOME/.command_history.db}"
