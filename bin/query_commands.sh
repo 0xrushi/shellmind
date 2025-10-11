@@ -34,6 +34,14 @@ case "$1" in
         search_dir="${2:-$PWD}"
         sqlite3 "$DB_FILE" "SELECT command FROM command_log WHERE working_dir = '$search_dir' AND exit_code = 0 GROUP BY command ORDER BY MAX(id) DESC;"
         ;;
+    unique-all)
+        # Show unique commands from all directories (alphabetical)
+        sqlite3 "$DB_FILE" "SELECT DISTINCT command FROM command_log ORDER BY command;"
+        ;;
+    unique-recent-all)
+        # Show unique commands from all directories ordered by most recent
+        sqlite3 "$DB_FILE" "SELECT command FROM command_log GROUP BY command ORDER BY MAX(id) DESC;"
+        ;;
     stats)
         # Show statistics
         sqlite3 -column -header "$DB_FILE" "
@@ -55,12 +63,14 @@ case "$1" in
         echo "Exported to command_history_export.csv"
         ;;
     *)
-        echo "Usage: query_commands.sh [recent|failed|search|dir|dirs|unique|unique-recent|stats|today|export] [args]"
+        echo "Usage: query_commands.sh [recent|failed|search|dir|dirs|unique|unique-recent|unique-all|unique-recent-all|stats|today|export] [args]"
         echo ""
         echo "Examples:"
         echo "  query_commands.sh unique              # Unique successful commands (current dir, alphabetical)"
         echo "  query_commands.sh unique /path/dir    # Unique successful commands (specific dir)"
         echo "  query_commands.sh unique-recent       # Unique successful commands (current dir, by recency)"
+        echo "  query_commands.sh unique-all          # Unique commands (all dirs, alphabetical)"
+        echo "  query_commands.sh unique-recent-all   # Unique commands (all dirs, by recency)"
         echo "  query_commands.sh recent 50           # Last 50 commands with directories"
         echo "  query_commands.sh failed              # Failed commands"
         echo "  query_commands.sh search docker       # Search for 'docker' commands"

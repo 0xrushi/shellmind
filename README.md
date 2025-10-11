@@ -31,7 +31,7 @@ ShellMind enhances your shell experience by logging all commands to a SQLite dat
 ### Quick Install
 
 ```bash
-git clone https://github.com/shellmind/shellmind.git
+git clone https://github.com/0xrushi/shellmind.git
 cd shellmind
 ./install.sh
 ```
@@ -40,6 +40,15 @@ Then restart your shell or run:
 ```bash
 source ~/.zshrc
 ```
+
+### Uninstall
+
+```bash
+cd shellmind
+./uninstall.sh
+```
+
+The uninstaller removes the installed scripts and ShellMind block in your `~/.zshrc`. It will ask before deleting your command history database.
 
 ## Usage
 
